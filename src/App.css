@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.Scatter {
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+}
+
+.Scatter-select {
+  min-width: 550px;
+
+}
