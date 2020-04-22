@@ -2,8 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import TinyLineChart from './tiny_chart';
-import ThreeDimScatterChart from './chart';
+import TinyLineChart from './TinyChart';
+import ThreeDimScatterChart from './ScatterChart';
 
 
 function App() {
