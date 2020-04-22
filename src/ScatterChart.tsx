@@ -19,45 +19,42 @@ import xrp_raw from './data/xrp.json';
 const data = {
     btc: {
         value: 'btc',
-        label: 'bitcoin',
+        label: 'Bitcoin',
         color: '#FFB31C',
-        shape: 'circle',
         raw: btc_raw,
     },
     eth: {
         value: 'eth',
-        label: 'ethereum',
+        label: 'Ethereum',
         color: '#432392',
-        shape: 'triangle',
         raw: eth_raw,
     },
     ltc: {
         value: 'ltc',
-        label: 'litecoin',
+        label: 'Litecoin',
         color: '#EC46C3',
-        shape: 'cross',
         raw: ltc_raw,
     },
     xrp: {
         value: 'xrp',
-        label: 'ripple',
+        label: 'Ripple',
         color: '#4473F6',
-        shape: 'diamond',
         raw: xrp_raw,
     },
 }
 
+function findAveragePrice(raw) {
+    const sum = raw.reduce((a,b) => a + b.price, 0);
+    const avg = (sum / data.btc.raw.length) || 0;
+    return (Math.round(avg * 100) / 100).toFixed(2);
+}
 
-const options = [
-    // { value: 'eth', label: 'ethereum' },
-    // { value: 'xrp', label: 'ripple' },
-    // { value: 'ltc', label: 'litecoin' }
-    data.eth, data.ltc, data.xrp
-  ]
-
+// Select dropdown options for comparison
+const options = [data.eth, data.ltc, data.xrp];
 
 class ThreeDimScatterChart extends React.Component {
     state = {
+        // default ethereum
         selectedOption: data.eth,
     };
 
@@ -71,10 +68,10 @@ class ThreeDimScatterChart extends React.Component {
 	render () {
       return (
         <div className='Scatter'>
-            <ScatterChart width={800} height={400} margin={{top: 40, right: 40, bottom: 40, left: 40}}>
-                <XAxis type="number" dataKey={'score'} name='score' />
-                {/* <YAxis type="number" dataKey={'price'} name='price' /> */}
 
+            <ScatterChart width={880} height={420} margin={{top: 10, right: 10, bottom: 10, left: 10}}>
+
+                <XAxis type="number" dataKey={'score'} name='score' />
                 <YAxis yAxisId="left" type="number" dataKey={'price'} name='Price' unit='$' stroke="#8884d8" />
                 <YAxis 
                     yAxisId="right"
@@ -90,22 +87,29 @@ class ThreeDimScatterChart extends React.Component {
 
                 <CartesianGrid />
                 <Tooltip cursor={{strokeDasharray: '3 3'}}/>
-                <Legend />
+                <Legend iconType='triangle' />
 
-                <Scatter yAxisId='left' name='bitcoin' data={data.btc.raw} fill={data.btc.color} shape="circle"/>
+                <Scatter 
+                    yAxisId='left'
+                    name={data.btc.label + ' (avg. price: $' + findAveragePrice(data.btc.raw) + ')'}
+                    data={data.btc.raw}
+                    fill={data.btc.color}
+                    shape='circle'
+                    />
                 <Scatter 
                     yAxisId='right'
-                    name={this.state.selectedOption.label} 
+                    name={this.state.selectedOption.label + ' (avg. price: $' + findAveragePrice(this.state.selectedOption.raw) + ')'}
                     data={this.state.selectedOption.raw} 
                     fill={this.state.selectedOption.color}
                     shape="triangle"
-                    // shape={this.state.selectedOption.shape}
                     />
             </ScatterChart>
 
+            <p><code>Compare Bitcoin against...</code></p>
+
             <Select 
                 className='Scatter-select'
-                value={this.state.selectedOption.value}
+                defaultValue={this.state.selectedOption}
                 onChange={this.handleChange}
                 options={options}
                 />

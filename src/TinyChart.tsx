@@ -14,9 +14,9 @@ const tiny_data = [
 class TinyLineChart extends React.Component {
   render() {
     return (
-      <LineChart width={300} height={100} data={tiny_data}>
-      <Line type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} />
-    </LineChart>
+        <LineChart width={300} height={100} data={tiny_data}>
+          <Line type='monotone' dataKey='pv' stroke='#8884d8' strokeWidth={2} />
+        </LineChart>
   );
   }
 
