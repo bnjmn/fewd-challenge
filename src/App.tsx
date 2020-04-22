@@ -28,9 +28,9 @@ function App() {
           Learn React
         </a>
 
+      </header>
       <ThreeDimScatterChart />
 
-      </header>
     </div>
 
   );

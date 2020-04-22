@@ -1,8 +1,10 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import { LineChart, Line} from 'recharts';
 
-import * as btc from './data/btc.json';
-
+import btc from './data/btc.json';
+import eth from './data/eth.json';
+import * as ltc from './data/ltc.json';
+import * as xrp from './data/xrp.json';
 
 import {ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
@@ -34,18 +36,31 @@ const data02 = [{x: 200, y: 260, z: 240}, {x: 240, y: 290, z: 220},
                   {x: 190, y: 290, z: 250}, {x: 198, y: 250, z: 210},
                   {x: 180, y: 280, z: 260}, {x: 210, y: 220, z: 230}];
 
+// example obj structure
+// {
+//     "price": 3685.14,
+//     "date": 1549756800000,
+//     "score": 4,
+//     "ratio": 0.021329227835929894
+// }
+
+
 class ThreeDimScatterChart extends React.Component {
 	render () {
       return (
         <ScatterChart width={800} height={400} margin={{top: 40, right: 40, bottom: 40, left: 40}}>
-        <XAxis type="number" dataKey={'x'} name='stature' unit='cm'/>
-        <YAxis type="number" dataKey={'y'} name='weight' unit='kg'/>
-        <ZAxis dataKey={'z'} range={[60, 400]} name='score' unit='km'/>
-        <CartesianGrid />
-        <Tooltip cursor={{strokeDasharray: '3 3'}}/>
-        <Legend />
-        <Scatter name='A school' data={data01} fill='#8884d8' shape="star"/>
-        <Scatter name='B school' data={data02} fill='#82ca9d' shape="triangle"/>
+            <XAxis type="number" dataKey={'score'} name='score' />
+            <YAxis type="number" dataKey={'price'} name='price' />
+            <ZAxis type="number" dataKey={'ratio'} name='ratio' scale='auto'/>
+
+            <CartesianGrid />
+            <Tooltip cursor={{strokeDasharray: '3 3'}}/>
+            <Legend />
+
+            <Scatter name='bitcoin' data={btc} fill='#8884d8' shape="star"/>
+            <Scatter name='ethereum' data={eth} fill='#82ca9d' shape="triangle"/>
+            {/* <Scatter name='ripple' data={xrp} fill='#ADD8E6' shape="diamond"/>
+            <Scatter name='litecoin' data={ltc} fill='#FFC0CB' shape="wye"/> */}
         </ScatterChart>
     );
   }
