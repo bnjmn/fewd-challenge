@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, } from 'recharts';
 import { LineChart, Line} from 'recharts';
 
 const data = [
@@ -12,12 +11,7 @@ const data = [
       {name: 'Page G', uv: 3490, pv: 4300, amt: 2100},
 ];
 
-// const TinyLineChart = React.createClass({
 class TinyLineChart extends React.Component {
-    // constructor(props) {
-    //     super(props);
-    // }
-
     render() {
   	return (
     	<LineChart width={300} height={100} data={data}>
@@ -27,10 +21,5 @@ class TinyLineChart extends React.Component {
     }
 
 }
-
-// ReactDOM.render(
-//   <TinyLineChart />,
-//   document.getElementById('container')
-// );
 
 export default TinyLineChart;
