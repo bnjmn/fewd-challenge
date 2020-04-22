@@ -50,15 +50,20 @@ class ThreeDimScatterChart extends React.Component {
       return (
         <ScatterChart width={800} height={400} margin={{top: 40, right: 40, bottom: 40, left: 40}}>
             <XAxis type="number" dataKey={'score'} name='score' />
-            <YAxis type="number" dataKey={'price'} name='price' />
+            {/* <YAxis type="number" dataKey={'price'} name='price' /> */}
+
+            <YAxis yAxisId="left" type="number" dataKey={'price'} name='Price' unit='$' stroke="#8884d8" />
+            <YAxis yAxisId="right" type="number" dataKey={'price'} name='Price' unit='$' orientation="right" stroke="#82ca9d"/>
+
             <ZAxis type="number" dataKey={'ratio'} name='ratio' scale='auto'/>
 
             <CartesianGrid />
             <Tooltip cursor={{strokeDasharray: '3 3'}}/>
             <Legend />
 
-            <Scatter name='bitcoin' data={btc} fill='#8884d8' shape="star"/>
-            <Scatter name='ethereum' data={eth} fill='#82ca9d' shape="triangle"/>
+            <Scatter yAxisId='left' name='bitcoin' data={btc} fill='#8884d8' shape="circle"/>
+            <Scatter yAxisId='right' name='ethereum' data={eth} fill='#82ca9d' shape="triangle"/>
+
             {/* <Scatter name='ripple' data={xrp} fill='#ADD8E6' shape="diamond"/>
             <Scatter name='litecoin' data={ltc} fill='#FFC0CB' shape="wye"/> */}
         </ScatterChart>
