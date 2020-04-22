@@ -16,8 +16,6 @@ function App() {
 
         <TinyLineChart />
 
-        <ThreeDimScatterChart />
-
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
@@ -29,8 +27,12 @@ function App() {
         >
           Learn React
         </a>
+
+      <ThreeDimScatterChart />
+
       </header>
     </div>
+
   );
 }
 

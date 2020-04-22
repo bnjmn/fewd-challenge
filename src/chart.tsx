@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line} from 'recharts';
 
+import * as btc from './data/btc.json';
+
+
 import {ScatterChart, Scatter, XAxis, YAxis, ZAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 const data = [
@@ -34,7 +37,7 @@ const data02 = [{x: 200, y: 260, z: 240}, {x: 240, y: 290, z: 220},
 class ThreeDimScatterChart extends React.Component {
 	render () {
       return (
-        <ScatterChart width={400} height={400} margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+        <ScatterChart width={800} height={400} margin={{top: 40, right: 40, bottom: 40, left: 40}}>
         <XAxis type="number" dataKey={'x'} name='stature' unit='cm'/>
         <YAxis type="number" dataKey={'y'} name='weight' unit='kg'/>
         <ZAxis dataKey={'z'} range={[60, 400]} name='score' unit='km'/>
