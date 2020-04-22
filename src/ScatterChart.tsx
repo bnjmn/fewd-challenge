@@ -15,29 +15,33 @@ import xrp_raw from './data/xrp.json';
 // }, ...]
 
 // Colors inspired by
-// https://www.schemecolor.com/coronavirus-covid-19-color-scheme.php
+// https://www.schemecolor.com/tomorrow.php
 const data = {
     btc: {
+        value: 'btc',
         label: 'bitcoin',
-        color: '#F07249',
+        color: '#FFB31C',
         shape: 'circle',
         raw: btc_raw,
     },
     eth: {
+        value: 'eth',
         label: 'ethereum',
-        color: '#6E1B09',
+        color: '#432392',
         shape: 'triangle',
         raw: eth_raw,
     },
     ltc: {
+        value: 'ltc',
         label: 'litecoin',
-        color: '#5D5F5C',
+        color: '#EC46C3',
         shape: 'cross',
         raw: ltc_raw,
     },
     xrp: {
+        value: 'xrp',
         label: 'ripple',
-        color: '#393A3C',
+        color: '#4473F6',
         shape: 'diamond',
         raw: xrp_raw,
     },
@@ -56,9 +60,8 @@ class ThreeDimScatterChart extends React.Component {
     state = {
         selectedOption: data.eth,
     };
+
     handleChange = selectedOption => {
-        console.log('HEREEEE');
-        console.log(selectedOption);
         this.setState(
             { selectedOption },
             () => console.log(`Option selected:`, this.state.selectedOption)
@@ -89,7 +92,7 @@ class ThreeDimScatterChart extends React.Component {
                 <Tooltip cursor={{strokeDasharray: '3 3'}}/>
                 <Legend />
 
-                <Scatter yAxisId='left' name='bitcoin' data={data.btc.raw} fill='#8884d8' shape="circle"/>
+                <Scatter yAxisId='left' name='bitcoin' data={data.btc.raw} fill={data.btc.color} shape="circle"/>
                 <Scatter 
                     yAxisId='right'
                     name={this.state.selectedOption.label} 
@@ -102,14 +105,13 @@ class ThreeDimScatterChart extends React.Component {
 
             <Select 
                 className='Scatter-select'
-                value={this.state.selectedOption}
+                value={this.state.selectedOption.value}
                 onChange={this.handleChange}
                 options={options}
                 />
         </div>
     );
   }
-
 }
 
 export default ThreeDimScatterChart;
