@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 import TinyLineChart from "./TinyChart";
-import ThreeDimScatterChart from "./ScatterChart";
+import CryptoScatterChart from "./ScatterChart";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <p>Welcome to my first react app: A Bitcoin Comparison</p>
       </header>
 
-      <ThreeDimScatterChart />
+      <CryptoScatterChart/>
     </div>
   );
 }
