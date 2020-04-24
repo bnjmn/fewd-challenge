@@ -1,9 +1,8 @@
 import React from "react";
-import Select from "./customer"
+// import Select from "./customer"
 import PropTypes, { InferProps } from 'prop-types';
 
 import CryptoChart from "./CryptoChart";
-import CryptoScatterChart from "./ScatterChart";
 
 // const propTypes = {
 //   something: 'else'
@@ -37,24 +36,26 @@ const right = {
 }
 
 // state layer
-export class CryptoChartContainer extends React.Component<Props, State> {
-  state = {
-    currentCrypto
-  }
+// export class CryptoChartContainer extends React.Component<Props, State> {
+export class CryptoChartContainer extends React.Component {
+  // state = {
+  //   currentCrypto
+  // }
 
-  onChangeCrypto = (value) => {
-    this.setState({
-      currentCrypto: value
-    })
-  }
+  // onChangeCrypto = (value) => {
+  //   this.setState({
+  //     currentCrypto: value
+  //   })
+  // }
 
   // presentational
   render() {
-    const { currentCrypto } = this.state;
+    // const { currentCrypto } = this.state;
 
     return (
       <div>
 
+        <h1>WTF BENJAMIN</h1>
         <CryptoChart
           cryptoLeft={left}
           cryptoRight={right}
@@ -80,12 +81,14 @@ export class CryptoChartContainer extends React.Component<Props, State> {
 // https://gist.github.com/drewdrewthis/8c004da114c745f8b0ca29500798d5f4
 
 // API LAYER => CryptoDataProvider
-export default () => {
+// export default () => {
 
-  const response = fetch();
+//   // const response = fetch();
 
-  const data = parseResponse(response).filter(eth btc xrp);
+//   // const data = parseResponse(response).filter(eth btc xrp);
 
-  // get data
-  return <CryptoChartContainer data={data} />;
-}
+//   // get data
+//   return <CryptoChartContainer data={data} />;
+// }
+
+export default CryptoChartContainer;

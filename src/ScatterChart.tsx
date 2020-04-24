@@ -15,6 +15,8 @@ import btc_raw from "./data/btc.json";
 import eth_raw from "./data/eth.json";
 import ltc_raw from "./data/ltc.json";
 import xrp_raw from "./data/xrp.json";
+
+import { findAveragePrice } from "./util";
 // example obj structure
 // [{
 //     "price": 3685.14,
