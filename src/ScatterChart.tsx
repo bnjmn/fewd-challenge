@@ -61,7 +61,7 @@ function findAveragePrice(raw) {
 // Select dropdown options for comparison
 const options = [data.eth, data.ltc, data.xrp];
 
-class ThreeDimScatterChart extends React.Component {
+class CryptoScatterChart extends React.Component {
   state = {
     // default ethereum
     selectedOption: data.eth,
@@ -152,4 +152,4 @@ class ThreeDimScatterChart extends React.Component {
   }
 }
 
-export default ThreeDimScatterChart;
+export default CryptoScatterChart;
