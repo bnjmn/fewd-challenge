@@ -8,21 +8,21 @@ describe("CryptoChart", () => {
       const left = {
         color: "#d3d3d3",
         label: "whatever",
-        data: {
+        data: [{
           price: 123.45,
           ratio: 0.0123,
           score: 5,
-        }
+        }]
       }
 
       const right = {
         color: "color-string",
         label: "trash",
-        data: {
+        data: [{
           price: 321.89,
           ratio: 0.321,
           score: 25,
-        }
+        }]
       }
 
       const { getByText, getByTestId } = render(<CryptoChart cryptoLeft={left} cryptoRight={right} />)

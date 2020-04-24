@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 import TinyLineChart from "./TinyChart";
-import CryptoScatterChart from "./ScatterChart";
+import CryptoChartContainer from "./CryptoChartContainer";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <p>Welcome to my first react app: A Bitcoin Comparison</p>
         </header>
 
-        <CryptoScatterChart/>
+        <CryptoChartContainer/>
 
       </div>
     </div>

@@ -15,6 +15,27 @@ import CryptoScatterChart from "./ScatterChart";
 //   currentCrypto: String;
 // }
 
+
+const left = {
+  color: "#d3d3d3",
+  label: "whatever",
+  data: [{
+    price: 123.45,
+    ratio: 0.0123,
+    score: 5,
+  }]
+}
+
+const right = {
+  color: "color-string",
+  label: "trash",
+  data: [{
+    price: 321.89,
+    ratio: 0.321,
+    score: 25,
+  }]
+}
+
 // state layer
 export class CryptoChartContainer extends React.Component<Props, State> {
   state = {
@@ -32,8 +53,15 @@ export class CryptoChartContainer extends React.Component<Props, State> {
     const { currentCrypto } = this.state;
 
     return (
-      <>
+      <div>
+
         <CryptoChart
+          cryptoLeft={left}
+          cryptoRight={right}
+          />
+
+        {/* </CryptoChart>
+
             data={}
             />
             <p>Something</p>
@@ -42,20 +70,10 @@ export class CryptoChartContainer extends React.Component<Props, State> {
             onChange={this.onChangeCrypto}
             default={}
             options={}
-        />
-      </>
+        /> */}
+      </div>
     );
   }
-};
-
-CryptoChartContainer.propTypes = {
-    currentCrypto: PropTypes.string.isRequired,
-    data: PropTypes.object.isRequired,
-    data: PropTypes.shape({
-
-
-    })
-
 };
 
 
