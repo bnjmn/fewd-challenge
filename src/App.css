@@ -35,6 +35,18 @@
   align-items: center;
   justify-content: center;
 }
+.Crypto-container {
+  /*  some kinda responsiveness */
+  width: 75vw;
+  max-width: 1080px;
+  min-width: 300px;
+
+  /* flex */
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
 
 .Scatter {
   text-align: center;
