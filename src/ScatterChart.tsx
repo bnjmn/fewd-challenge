@@ -52,11 +52,6 @@ const data = {
   },
 };
 
-function findAveragePrice(raw) {
-  const sum = raw.reduce((a, b) => a + b.price, 0);
-  const avg = sum / data.btc.raw.length || 0;
-  return (Math.round(avg * 100) / 100).toFixed(2);
-}
 
 // Select dropdown options for comparison
 const options = [data.eth, data.ltc, data.xrp];
