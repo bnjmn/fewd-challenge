@@ -35,9 +35,9 @@ const CryptoChart = ({cryptoLeft, cryptoRight}: ChartProps) => {
     return (
       <div className="Crypto-container" data-testid="crypto-chart">
         {/* Currently, the test won't render the chart when using Responsive */}
-        {/* <ResponsiveContainer width="100%" height={450}> */}
-          {/* <ScatterChart> */}
-          <ScatterChart height={400} width={800}>
+        <ResponsiveContainer width="100%" height={450}>
+          <ScatterChart>
+          {/* <ScatterChart height={400} width={800}> */}
             <XAxis type="number" dataKey={"score"} name="Google Trend Score" />
 
             <YAxis
@@ -81,7 +81,7 @@ const CryptoChart = ({cryptoLeft, cryptoRight}: ChartProps) => {
             />
 
           </ScatterChart>
-        {/* </ResponsiveContainer> */}
+        </ResponsiveContainer>
       </div>
     );
 };

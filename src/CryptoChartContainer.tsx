@@ -54,8 +54,6 @@ export class CryptoChartContainer extends React.Component {
 
     return (
       <div>
-
-        <h1>WTF BENJAMIN</h1>
         <CryptoChart
           cryptoLeft={left}
           cryptoRight={right}
