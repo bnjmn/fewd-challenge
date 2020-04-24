@@ -14,7 +14,6 @@ describe("CryptoChart", () => {
           score: 5,
         }]
       }
-
       const right = {
         color: "color-string",
         label: "trash",
@@ -24,8 +23,14 @@ describe("CryptoChart", () => {
           score: 25,
         }]
       }
+      const responsive = {
+        height: 450,
+        width: 1000,
+      }
 
-      const { getByText, getByTestId } = render(<CryptoChart cryptoLeft={left} cryptoRight={right} />)
+      const { getByText, getByTestId } = render(
+        <CryptoChart cryptoLeft={left} cryptoRight={right} responsive={responsive}/>
+        );
 
       const chart = getByTestId('crypto-chart');
       expect(chart).toContainElement(getByText(/trash/i));

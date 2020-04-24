@@ -28,14 +28,19 @@ type CryptoData = {
 type ChartProps = {
   cryptoLeft: CryptoData,
   cryptoRight: CryptoData,
+  responsive: {
+    height: number,
+    width: string,
+  }
 }
 
 // class CryptoChart extends React.Component {
-const CryptoChart = ({cryptoLeft, cryptoRight}: ChartProps) => {
+const CryptoChart = ({cryptoLeft, cryptoRight, responsive}: ChartProps) => {
     return (
       <div className="Crypto-container" data-testid="crypto-chart">
         {/* Currently, the test won't render the chart when using Responsive */}
-        <ResponsiveContainer width="100%" height={450}>
+        {/* <ResponsiveContainer width="100%" height={450}> */}
+        <ResponsiveContainer width={responsive.width} height={responsive.height}>
           <ScatterChart>
           {/* <ScatterChart height={400} width={800}> */}
             <XAxis type="number" dataKey={"score"} name="Google Trend Score" />

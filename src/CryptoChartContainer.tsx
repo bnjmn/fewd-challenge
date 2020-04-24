@@ -23,8 +23,7 @@ const left = {
     ratio: 0.0123,
     score: 5,
   }]
-}
-
+};
 const right = {
   color: "color-string",
   label: "trash",
@@ -33,6 +32,10 @@ const right = {
     ratio: 0.321,
     score: 25,
   }]
+};
+const responsive = {
+  height: 450,
+  width: "90%",
 }
 
 // state layer
@@ -57,6 +60,7 @@ export class CryptoChartContainer extends React.Component {
         <CryptoChart
           cryptoLeft={left}
           cryptoRight={right}
+          responsive={responsive}
           />
 
         {/* </CryptoChart>
