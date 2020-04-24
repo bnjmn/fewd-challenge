@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Line } from "recharts";
+import { LineChart, Line, ResponsiveContainer } from "recharts";
 
 const tiny_data = [
   { name: "Page A", uv: 4000, pv: 2400, amt: 2400 },
@@ -11,14 +11,16 @@ const tiny_data = [
   { name: "Page G", uv: 3490, pv: 4300, amt: 2100 },
 ];
 
-class TinyLineChart extends React.Component {
-  render() {
-    return (
-      <LineChart width={300} height={100} data={tiny_data}>
-        <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
-      </LineChart>
-    );
-  }
-}
+const TinyLineChart = () => {
+  return (
+    <div className="tiny-chart-container">
+      <ResponsiveContainer width="100%" height={100}>
+        <LineChart data={tiny_data}>
+          <Line type="monotone" dataKey="pv" stroke="#8884d8" strokeWidth={2} />
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
+  );
+};
 
 export default TinyLineChart;
