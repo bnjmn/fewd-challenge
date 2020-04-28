@@ -36,6 +36,7 @@ type ChartProps = {
 
 // class CryptoChart extends React.Component {
 const CryptoChart = ({cryptoLeft, cryptoRight, responsive}: ChartProps) => {
+  console.log(cryptoLeft, cryptoRight);
     return (
       <div className="Crypto-container" data-testid="crypto-chart">
         {/* Currently, the test won't render the chart when using Responsive */}
